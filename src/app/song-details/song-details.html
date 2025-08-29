@@ -1,0 +1,24 @@
+<div class="container mx-auto p-4">
+    <button routerLink="../" class="p-1">
+        <fa-icon class="text-lg text-stone-500" [icon]="['fas', 'arrow-left']"></fa-icon>
+    </button>
+</div>
+
+<div class="container mx-auto px-4">
+    <h1 class="text-3xl font-bold">
+        {{ song?.title }}
+    </h1>
+    <h2 class="text-xl font-bold text-stone-700"> {{ song?.number }}</h2>
+    <hr class="h-px border-0 bg-stone-300 mt-4 mb-6">
+
+    <div class="text-stone-900 text-xl font-serif">
+    @for (verse of song?.verses; track $index) {
+        <div [ngClass]="{ 'mb-6': !$last }">
+            @for (line of verse; track $index) {
+                <p>{{ line }}</p>
+            }
+        </div>
+    }
+    </div>
+    
+</div>

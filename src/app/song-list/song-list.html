@@ -1,0 +1,31 @@
+<div tabindex="-1" class="fixed top-0 start-0 z-50 flex justify-between w-full p-4">
+    <div class="flex items-center container mx-auto">
+        <div class="relative w-full">
+            <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                <fa-icon class="text-gray-500" [icon]="['fas', 'search']"></fa-icon>
+            </div>
+            <input
+                id="search"
+                #input
+                autofocus
+                (input)="songService.setFilter($event.target.value)"
+                type="search"
+                class="block w-full p-4 ps-10 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-full bg-gray-50 focus:border-2 focus:ring-blue-500 focus:border-blue-500"
+                placeholder="Search..."
+            />
+        </div>
+    </div>
+</div>
+
+<div class="px-4 mt-22 container mx-auto">
+@for (song of songService.filteredSongs(); track song.number) {
+  <div class="p-4 border-b flex justify-between items-center border-stone-400" [routerLink]="song.number">
+    <div class="text-lg font-bold">
+        <div class="text-sm text-stone-800" [innerHTML]="song.numberHighlighted || song.number"></div>
+        <div class="text-lg" [innerHTML]="song.title"></div>
+        <div [innerHTML]="song.lineOne" class="text-sm text-stone-600"></div>
+    </div>
+    <fa-icon class="text-stone-400" [icon]="['fas', 'chevron-right']"></fa-icon>
+  </div>
+}
+</div>
