@@ -3,7 +3,6 @@
     import { Dialog, DialogRef } from '@angular/cdk/dialog';
 import { concat, interval, Observable } from 'rxjs';
 import { exhaustMap, filter, first, tap } from 'rxjs/operators';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { UpdateDialog } from './update-dialog/update-dialog';
 
 @Injectable({
@@ -22,7 +21,7 @@ export class PwaUpdateService {
   );
 
   public init() {
-    this.checkForUpdates$.pipe(takeUntilDestroyed()).subscribe();
+    this.checkForUpdates$.subscribe();
 
     if (this.swUpdate.isEnabled) {
       this.swUpdate.versionUpdates.pipe(
@@ -36,7 +35,6 @@ export class PwaUpdateService {
               return dialogRef.closed as Observable<boolean>;
           }),
           tap(confirmed => confirmed && window.location.reload()),
-          takeUntilDestroyed()
       ).subscribe();
   }
 }
