@@ -10,5 +10,11 @@ export const routes: Routes = [
     {
         component: SongDetails,
         path: 'songs/:number',
+    },
+    {
+        path: '', redirectTo: 'songs', pathMatch: 'full'
+    },
+    {
+        path: '**', redirectTo: 'songs'
     }
 ];
