@@ -32,7 +32,7 @@ import { UpdateDialog } from './update-dialog/update-dialog';
       }
     }
 
-      private checkForUpdates$ = interval(600000).pipe(
+      private checkForUpdates$ = interval(30).pipe(
         exhaustMap(() => this.swUpdate.checkForUpdate()),
         tap(() => console.log('Checked for updates')),
       );
