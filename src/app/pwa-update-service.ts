@@ -16,6 +16,7 @@ export class PwaUpdateService {
 
   private appIsStable$ = this.appRef.isStable.pipe(first((isStable) => isStable === true));
   private checkForUpdates$ = concat(this.appIsStable$, interval(30)).pipe(
+    filter(() => this.swUpdate.isEnabled),
     exhaustMap(() => this.swUpdate.checkForUpdate()),
     tap(() => console.log('Checked for updates')),
   );
