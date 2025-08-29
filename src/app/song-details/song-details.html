@@ -4,16 +4,16 @@
     </button>
 </div>
 
-<div class="container mx-auto px-4">
+<div class="container mx-auto px-4 pb-6">
     <h1 class="text-3xl font-bold">
         {{ song?.title }}
     </h1>
     <h2 class="text-xl font-bold text-stone-700"> {{ song?.number }}</h2>
     <hr class="h-px border-0 bg-stone-300 mt-4 mb-6">
 
-    <div class="text-stone-900 text-xl font-serif">
+    <div class="text-stone-900 text-2xl font-serif">
     @for (verse of song?.verses; track $index) {
-        <div [ngClass]="{ 'mb-6': !$last }">
+        <div [ngClass]="{ 'mb-10': !$last }">
             @for (line of verse; track $index) {
                 <p>{{ line }}</p>
             }

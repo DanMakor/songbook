@@ -1,6 +1,5 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { SongList } from "./song-list/song-list";
 import { FaIconLibrary } from '@fortawesome/angular-fontawesome';
 import { faArrowLeft, faChevronRight, faSearch } from '@fortawesome/free-solid-svg-icons'; // Import specific icons
 
