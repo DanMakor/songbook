@@ -17,9 +17,9 @@
     </div>
 </div>
 
-<div class="px-4 mt-22 container mx-auto">
+<div class="px-4 mt-22 pb-8 container mx-auto">
 @for (song of songService.filteredSongs(); track song.number) {
-  <div class="p-4 border-b flex justify-between items-center border-stone-400" [routerLink]="song.number">
+  <div class="p-4 border-b flex justify-between items-center border-stone-400" [ngClass]="{ 'border-b': !$last }" [routerLink]="song.number">
     <div class="text-lg font-bold">
         <div class="text-sm text-stone-800" [innerHTML]="song.numberHighlighted || song.number"></div>
         <div class="text-lg" [innerHTML]="song.title"></div>

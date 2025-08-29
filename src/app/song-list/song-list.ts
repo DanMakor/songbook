@@ -3,11 +3,12 @@ import { RouterLink } from '@angular/router';
 import { FormControl } from '@angular/forms';
 import { SongService } from '../song-service';
 import { FaIconComponent } from '@fortawesome/angular-fontawesome';
+import { NgClass } from '@angular/common';
 
 @Component({
   standalone: true,
   selector: 'app-song-list',
-  imports: [FaIconComponent, RouterLink],
+  imports: [FaIconComponent, RouterLink, NgClass],
   templateUrl: './song-list.html',
   styleUrl: './song-list.css'
 })
