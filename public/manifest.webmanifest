@@ -1,6 +1,6 @@
 {
-  "name": "songbook",
-  "short_name": "songbook",
+  "name": "Songbook",
+  "short_name": "Songbook",
   "display": "standalone",
   "scope": "./",
   "start_url": "./",
